@@ -1,11 +1,12 @@
 const fs = require('fs');
+const pg = require('pg');
 const db_connection = require('./db_connection');
-const sql = fs.readFileSync(`${__dirname}/db_build.sql`).toSting();
+const sql = fs.readFileSync(`${__dirname}/db_build.sql`).toString();
 
-const runDbBuild = cb => {
+const runDbBuild = (cb) => {
   db_connection.query(sql, (err, res) => {
-    if (err) return cb(err);
+    if (err)  cb(err);
+    runDbBuild((null,res))
   });
 };
-
 module.exports = runDbBuild;
