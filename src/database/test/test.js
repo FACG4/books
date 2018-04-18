@@ -32,7 +32,7 @@ tape('getBooksReserve function test', (t)=> {
   getBooks.getBooksReserve((err,result) => {
     if(err)
     console.log(err);
-  t.deepEqual( result[0], expected,"expected equal actual");
+  t.deepEqual( result[0], expected,"expected return the book that reserved");
   t.end();
 });
 });
@@ -47,8 +47,25 @@ tape('reservee function test', (t)=> {
 reserve.reserve((err,result) => {
     if(err)
     console.log(err);
-  t.deepEqual( result[0], expected,"expected equal actual");
+  t.deepEqual( result[0], expected,"expected return book that available to reserve");
   t.end();
 });
 });
 });
+
+// tape('Insert Books function test', (t)=> {
+//   runDbBuild(function(err, res){
+//   t.error(err , "error in response");
+// insertbooks.insertBooks(1,'Hello',2000,'haneen1',(err,result) => {
+//     if(err)
+//     console.log(err);
+//     getBooks.getBooks((err,res)=>{
+//           if (err) console.log(err);
+//           t.deepEqual(res.length,7,"Length match")
+//           t.end()
+//
+//
+// });
+// });
+// });
+// });
