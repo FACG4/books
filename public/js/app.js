@@ -1,4 +1,5 @@
-const fetch =(url , callback)=>{
+
+const fetch =(url , callback) => {
   const xhr = new XMLHttpRequest();
   xhr.onreadystatechange = ()=>{
     if (xhr.readystate === 4){
@@ -51,4 +52,4 @@ data.forEach(function (item) {
 
   }
 
-}
+
