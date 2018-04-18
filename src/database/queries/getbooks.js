@@ -12,7 +12,7 @@ const getBooks = (cb) => {
 };
 
 const getBooksReserve = (cb) => {
-  db_connection.query('SELECT * FROM BOOKS INNER JOIN reserve ON books.id = reserve.book_id', (err, res) => {
+  db_connection.query('SELECT * FROM BOOKS INNER JOIN reserve ON books.id = reserve.book_id ', (err, res) => {
     if (err) {
       return cb(err);
     } else {
