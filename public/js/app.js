@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-=======
+
 const request =  (method, url, payload, cb) => {
   var xhr = new XMLHttpRequest();
   var payloadString = JSON.stringify(payload);
@@ -41,4 +40,3 @@ request('GET', '/booksList', null, (err, books) => {
     container.replaceChild(ul, container.firstElementChild)
   }
 });
->>>>>>> 7d78a9eb0c170868f4814c3b8059e8560e04489e
