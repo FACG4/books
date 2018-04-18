@@ -16,11 +16,11 @@ const router = (req, res) => {
   const { url: endpoint } = req;
   if (endpoint === '/') {
     handler.handlePublic(res, path.join('public', 'index.html'));
-  } else if (filesInFolder.includes(endpoint)) {    
+  } else if (filesInFolder.includes(endpoint)) {
     handler.handlePublic(res, path.join('public',endpoint));
-  } /* else if (endpoint === '/city') { */
-  //   handler.handleInput(req, res);
-  // } else {
+  }  else if (endpoint === '/insert') {
+    handler.handleInsert(req, res);
+  } /* else { */
   //   handler.handleNotFound(req, res);
   // }
 };
