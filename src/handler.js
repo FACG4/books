@@ -60,9 +60,9 @@ const handleBooklist = (req, res) => {
       res.end('<h1>Sorry, there was a problem getting the users<h1>');
       console.log(err);
     } else {
-      let output = JSON.stringify(result);      
+      let output = JSON.stringify(result);
       res.writeHead(200, { 'content-type': 'application/json' });
-      res.end(output);      
+      res.end(output);
     }
   });
 };
@@ -73,6 +73,3 @@ const handleNotFound = (req, res) => {
 };
 
 module.exports = {handlePublic,handleInsert, handleBooklist, handleNotFound};
-
-
-
