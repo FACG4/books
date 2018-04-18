@@ -18,9 +18,9 @@ const router = (req, res) => {
     handler.handlePublic(res, path.join('public', 'index.html'));
   } else if (filesInFolder.includes(endpoint)) {    
     handler.handlePublic(res, path.join('public',endpoint));
-  } /* else if (endpoint === '/city') { */
-  //   handler.handleInput(req, res);
-  // } else {
+  }  else if (endpoint === '/insert') { 
+    handler.handleInput(req, res);
+  } /* else { */
   //   handler.handleNotFound(req, res);
   // }
 };

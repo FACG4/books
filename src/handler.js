@@ -2,7 +2,6 @@ const fs = require('fs');
 const querystring = require('querystring');
 const path = require('path');
 
-
 const contentType = {
   html: 'text/html',
   css: 'text/css',
@@ -12,7 +11,6 @@ const contentType = {
   json: 'application/json',
   ico: 'image/ico'
 };
-
 
 const handlePublic = (res, endpoint) => {
   const extention = endpoint.split('.')[1];
@@ -31,6 +29,18 @@ const handlePublic = (res, endpoint) => {
     }
   });
 };
+
+const handleInsert = (req, res) {
+  let data = '';
+  req.on('data', (chunk) => {
+    data += chunk;
+  });
+  req.on('end', () => {
+    const book = querystring.parse(data);
+    console.log(book);
+    
+  })
+}
 
 module.exports = {handlePublic};
 
