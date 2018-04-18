@@ -1,6 +1,5 @@
 const db_connection = require('../db_connection.js');
 
-
 const getBooks = (cb) => {
   db_connection.query('SELECT * FROM books', (err, res) => {
     if (err) {
@@ -20,6 +19,7 @@ const getBooksReserve = (cb) => {
     }
   });
 };
+
 module.exports = {
   getBooks,
   getBooksReserve
