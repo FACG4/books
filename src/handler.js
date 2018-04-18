@@ -13,9 +13,10 @@ const contentType = {
   ico: 'image/ico'
 };
 
+
 const handlePublic = (res, endpoint) => {
-  const ext = endpoint.split('.')[1];
-  fs.readFile(__dirname + '/../public/index.html', function(error, file) {
+  const extention = endpoint.split('.')[1];
+  fs.readFile(path.join(__dirname, '..', endpoint), (error, data) => {
     if (error) {
       res.writeHead(500, 'Content-Type:text/html');
       res.end(
@@ -24,12 +25,12 @@ const handlePublic = (res, endpoint) => {
       console.log(error);
     } else {
       res.writeHead(200, {
-        'Content-Type': 'text/html'
+        'Content-Type': contentType[extention],
       });
-      res.end(file);
+      res.end(data);
     }
   });
-}
+};
 
 module.exports = {handlePublic};
 
