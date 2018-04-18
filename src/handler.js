@@ -1,6 +1,7 @@
 const fs = require('fs');
 const querystring = require('querystring');
 const path = require('path');
+const insertbooks = require('./database/queries/insertbooks');
 
 const contentType = {
   html: 'text/html',
@@ -30,19 +31,30 @@ const handlePublic = (res, endpoint) => {
   });
 };
 
-const handleInsert = (req, res) {
+const handleInsert = (req, res) => {
   let data = '';
   req.on('data', (chunk) => {
     data += chunk;
   });
   req.on('end', () => {
     const book = querystring.parse(data);
-    console.log(book);
     
-  })
+    const {name:book_name, year, author} = book;
+    console.log(book);
+    insertbooks.insertBooks(book_name, year, author, (err, result)=> {
+      if (err) {
+        res.writeHead(500, 'Content-Type: text/html');
+        res.end('<h1>Sorry, there was a problem adding that book</h1>');
+        console.log(err);
+      } else {
+        res.writeHead(200, 'Content-Type: text/html');
+        res.end('<h1>successfully added</h1>');
+      }
+    });
+  });
 }
 
-module.exports = {handlePublic};
+module.exports = {handlePublic,handleInsert};
 
 
 

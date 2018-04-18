@@ -1,5 +1,5 @@
 const tape = require('tape');
-const run_Build = require('../db_build');
+const runDbBuild = require('../db_build');
 const getBooks = require('../queries/getbooks');
 const insertbooks = require('../queries/insertbooks');
 const reserve = require('../queries/reserve');
@@ -10,7 +10,7 @@ tape("tape is working", t => {
 });
 
 tape('getBooks function test', (t)=> {
-  run_Build(function(err, res){
+  runDbBuild(function(err, res){
   t.error(err , "error in response");
   const expected = {id: 1 ,book_name:'Eloquent JavaScript' , year :2017,author:'Marijn Haverbeke'};
   getBooks.getBooks((err,result) => {
@@ -23,7 +23,7 @@ tape('getBooks function test', (t)=> {
 });
 
 tape('getBooksReserve function test', (t)=> {
-  run_Build(function(err, res){
+  runDbBuild(function(err, res){
   t.error(err , "error in response");
   const expected = {id: 1 ,book_name:'Eloquent JavaScript' , year :2017,author:'Marijn Haverbeke',id: 1, user_id:1,
 
@@ -40,7 +40,7 @@ tape('getBooksReserve function test', (t)=> {
 
 
 tape('reservee function test', (t)=> {
-  run_Build(function(err, res){
+  runDbBuild(function(err, res){
   t.error(err , "error in response");
   const expected = {id:5  ,book_name:'JavaScript Patterns' , year :2010,author:'Stoyan Stefanov',id: 1, user_id:1,
   id: null,user_id:null,book_id:null ,start_date:null,end_date:null};
