@@ -37,3 +37,18 @@ tape('getBooksReserve function test', (t)=> {
 });
 });
 });
+
+
+tape('reservee function test', (t)=> {
+  run_Build(function(err, res){
+  t.error(err , "error in response");
+  const expected = {id:5  ,book_name:'JavaScript Patterns' , year :2010,author:'Stoyan Stefanov',id: 1, user_id:1,
+  id: null,user_id:null,book_id:null ,start_date:null,end_date:null};
+reserve.reserve((err,result) => {
+    if(err)
+    console.log(err);
+  t.deepEqual( result[0], expected,"expected equal actual");
+  t.end();
+});
+});
+});
