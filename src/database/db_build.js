@@ -9,6 +9,4 @@ const runDbBuild = cb => {
   });
 };
 
-
-
 module.exports = runDbBuild;

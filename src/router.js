@@ -20,8 +20,10 @@ const router = (req, res) => {
     handler.handlePublic(res, path.join('public',endpoint));
   }  else if (endpoint === '/insert') { 
     handler.handleInsert(req, res);
-  } /* else { */
-  //   handler.handleNotFound(req, res);
-  // }
+  } else if (endpoint === '/booksList') {
+    handler.handleBooklist(req, res);
+  } else { 
+    handler.handleNotFound(req, res);
+  }
 };
 module.exports = router;
