@@ -3,11 +3,13 @@ require('env2')('./config.env');
 const { Pool } = require('pg');
 const url = require('url');
 
-
 let DB_URL = process.env.BOOKS_URL;
 if (process.env.NODE_ENV === "test") {
   DB_URL = process.env.TEST_DB_URL;
 }
+
+console.log(DB_URL);
+
 
 if (!DB_URL) throw new Error("Enviroment variable DB_URL must be set");
 

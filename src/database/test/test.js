@@ -39,7 +39,7 @@ tape('getBooksReserve function test', (t)=> {
 });
 
 
-tape('reserve function test', (t)=> {
+tape('reservee function test', (t)=> {
   runDbBuild(function(err, res){
   t.error(err , "error in response");
   const expected = {id:5  ,book_name:'JavaScript Patterns' , year :2010,author:'Stoyan Stefanov',id: 1, user_id:1,
