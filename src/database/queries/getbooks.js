@@ -1,7 +1,8 @@
-const db_connection = require('../database/db_connection.js');
+const db_connection = require('../db_connection.js');
+
 
 const getBooks = (cb) => {
-  db_connection.query('SELECT *FROM books', (err, res) = > {
+  db_connection.query('SELECT * FROM books', (err, res) => {
     if (err) {
       return cb(err);
     } else {
