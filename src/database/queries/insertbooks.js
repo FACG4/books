@@ -1,7 +1,7 @@
 const db_connection = require('../db_connection');
-let sql = `INSERT INTO books (book_name, year, author) VALUES (' Hard Times ', 1850 ,' charles Dickens') `;
 
-const insertBooks = (cb) => {
+const insertBooks = (book_name,year,author, cb) => {
+  let sql = { text:'INSERT INTO books (book_name, year, author) VALUES ($1, $2, $3)', values: [book_name, year, author]};
   db_connection.query(sql,(err, res) => {
 
       if (err) {
