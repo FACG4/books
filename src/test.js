@@ -4,11 +4,6 @@ const supertest = require('supertest');
 const handleWeather = require('./handler');
 
 
-test('Initialise', (t) => {
-const num = 2;
-t.equal(num, 2, 'Tape is working');
-t.end();
-});
 
 test('handlePublic ',(t) => {
 supertest(router)
