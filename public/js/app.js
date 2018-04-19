@@ -23,6 +23,20 @@ request('GET', '/booksList', null, (err, books) => {
   } else {
     const container = document.getElementById('reserveBook');
     const ul = document.createElement('ul');
+    const head = document.createElement('li');
+
+    const bookNam= document.createElement('span');
+    const auth = document.createElement('span');
+    const year = document.createElement('span');
+
+    bookNam.textContent = "Book Name";
+    auth.textContent = "Author";
+    year.textContent = "Year";
+    head.appendChild(bookNam);
+  head.appendChild(auth);
+  head.appendChild(year);
+  ul.appendChild(head);
+
     books.forEach((book) => {
       const {book_name, author , year} = book;
       const li = document.createElement('li');
